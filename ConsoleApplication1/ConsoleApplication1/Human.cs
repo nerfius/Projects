@@ -12,7 +12,7 @@ namespace ConsoleApplication1
         public override void AddValueToPool()
         {
             Random rnd = new Random();
-            Console.WriteLine("Waiting for player...");
+            Console.WriteLine("Waiting for human...");
             Console.ReadKey();
             this.cardValue += rnd.Next(1, 10);
         }
