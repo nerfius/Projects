@@ -9,6 +9,7 @@ namespace ConsoleApplication1
     {
 
         //Testing http://youtu.be/5g_bVCJVFVE
+        // ett andra test https://www.youtube.com/watch?v=mSnRq6iyHKg
         public AI() { }
 
         public override void AddValueToPool()
