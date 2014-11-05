@@ -21,6 +21,8 @@ namespace pazaak
         {
             base.DrawCard(spriteBatch);
             spriteBatch.DrawString(spriteFont, text, position, color); // parameters are currently placeholders
+            // spriteFont from main
+            // text is value of card
         }
     }
 }

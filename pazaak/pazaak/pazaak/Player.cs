@@ -10,7 +10,7 @@ namespace pazaak
     {
         public int cardValue { get; set; }
         public int score { get; set; }
-        private List<Card> cardsOnTable;
+        protected List<Card> cardsOnTable;
 
         public Player()
         {
@@ -18,7 +18,7 @@ namespace pazaak
             score = 0;
         }
 
-        public virtual void AddValueToPool()
+        public virtual void pickCard()
         {
             cardValue += 1;
         }

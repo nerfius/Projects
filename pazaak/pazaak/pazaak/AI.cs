@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace pazaak
 {
@@ -9,7 +11,7 @@ namespace pazaak
     {
         public AI() : base() { }
 
-        public override void PickCard() // Change this method
+        public override void pickCard() // Change this method
         {
             Random rnd = new Random();
             int tempVal = rnd.Next(1, 10);
@@ -26,8 +28,6 @@ namespace pazaak
                     cardsOnTable.Add(tempCard); // annars så räknas det som en stand
                     cardValue += tempVal;
                 }
-
-            //cardValue += rnd.Next(1, 10);
         }
     }
 }

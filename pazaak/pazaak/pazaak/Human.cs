@@ -9,7 +9,7 @@ namespace pazaak
     {
         public Human() : base() { }
 
-        public override void AddValueToPool() // Change this method
+        public override void pickCard() // Change this method
         {
             Random rnd = new Random();
             this.cardValue += rnd.Next(1, 10);
