@@ -7,6 +7,8 @@ namespace ConsoleApplication1
 {
     class AI : Player
     {
+
+        //Testing http://youtu.be/5g_bVCJVFVE
         public AI() { }
 
         public override void AddValueToPool()
