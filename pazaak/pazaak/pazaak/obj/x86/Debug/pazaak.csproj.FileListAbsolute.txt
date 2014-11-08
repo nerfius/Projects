@@ -1,0 +1,8 @@
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\obj\x86\Debug\pazaak.csprojResolveAssemblyReference.cache
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\bin\x86\Debug\Content\font01.xnb
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\bin\x86\Debug\pazaak.exe
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\bin\x86\Debug\pazaak.pdb
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\obj\x86\Debug\pazaak.exe
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\obj\x86\Debug\pazaak.pdb
+C:\Users\Nils\Documents\Visual Studio 2010\Projects\pazaak\pazaak\pazaak\bin\x86\Debug\Content\button.xnb

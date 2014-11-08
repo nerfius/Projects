@@ -17,7 +17,7 @@ namespace pazaak
             this.cardTexture = cardTexture;
             this.coords = coords;
         }
-        public override void DrawCard(SpriteBatch spriteBatch)
+        public virtual void DrawCard(SpriteBatch spriteBatch, SpriteFont spriteFont)
         {
             spriteBatch.Draw(cardTexture, coords, Color.White);
         }

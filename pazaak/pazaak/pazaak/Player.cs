@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace pazaak
 {
@@ -18,16 +19,16 @@ namespace pazaak
             score = 0;
         }
 
-        public virtual void pickCard()
+        public virtual void pickCard(Texture2D cardTexture, Vector2 cardPos)
         {
             cardValue += 1;
         }
 
-        public void DrawCards(SpriteBatch spriteBatch)
+        public void DrawCards(SpriteBatch spriteBatch, SpriteFont spriteFont)
         {
-            foreach (Card c in cardsOnTable)
+            foreach (ValueCard vc in cardsOnTable)
             {
-                c.DrawCard(spriteBatch);
+                vc.DrawCard(spriteBatch, spriteFont); // PROBLEM
             }
         }
     }

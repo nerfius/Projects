@@ -19,6 +19,17 @@ namespace pazaak
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // our fields
+        Human humanPlayer;
+        AI aiPlayer;
+        SpriteFont spriteFont;
+        List<Player> players;
+        KeyboardState kbState;
+        MouseState mState;
+
+        Texture2D button;
+        string mousePos;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,6 +45,7 @@ namespace pazaak
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            this.IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -48,6 +60,12 @@ namespace pazaak
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            spriteFont = Content.Load<SpriteFont>("font01");
+            humanPlayer = new Human();
+            aiPlayer = new AI();
+            players = new List<Player>();
+
+            button = Content.Load<Texture2D>("button");
         }
 
         /// <summary>
@@ -71,6 +89,18 @@ namespace pazaak
                 this.Exit();
 
             // TODO: Add your update logic here
+            kbState = Keyboard.GetState();
+            if (kbState.IsKeyDown(Keys.Escape))
+                this.Exit();
+
+            if (mState.X > button.Bounds.Right && mState.X < button.Bounds.Left
+                && mState.Y > button.Bounds.Top && mState.Y < button.Bounds.Bottom
+                &&  mState.LeftButton == ButtonState.Pressed) // det här borde funka. av ngn anledning så vill dock inte muspekarens position uppdateras
+            {
+                this.Exit();
+            }
+
+            mousePos = mState.X.ToString();
 
             base.Update(gameTime);
         }
@@ -84,6 +114,11 @@ namespace pazaak
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            // Draw everything here
+            spriteBatch.Draw(button, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(spriteFont, mousePos, new Vector2(200, 200), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
