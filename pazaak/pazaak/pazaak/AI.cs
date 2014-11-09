@@ -11,21 +11,23 @@ namespace pazaak
     {
         public AI() : base() { }
 
-        public override void pickCard(Texture2D cardTexture, Vector2 cardPos) // Change this method
+        public override void pickCard() // Change this method
         {
             Random rnd = new Random();
             int tempVal = rnd.Next(1, 10);
-            ValueCard tempCard = new ValueCard(cardTexture, cardPos, tempVal);  // onödigt att skapa ett nytt kort om vi ännu inte vet om ett nytt kort ska dras -NF
+            ValueCard tempCard;
 
             if (cardValue < 11)
             {
+                tempCard = new ValueCard(card_sprite, new Vector2(stackCoords.X + (cardsOnTable.Count*24) , stackCoords.Y), tempVal); 
                 cardsOnTable.Add(tempCard);
                 cardValue += tempVal;
             }
             else
                 if (rnd.Next(11, 20) > cardValue)
                 {
-                    cardsOnTable.Add(tempCard); // annars så räknas det som en stand
+                    tempCard = new ValueCard(card_sprite, new Vector2(stackCoords.X + float (cardsOnTable.Count*24) , stackCoords.Y), tempVal);
+                    cardsOnTable.Add(tempCard);
                     cardValue += tempVal;
                 }
         }
