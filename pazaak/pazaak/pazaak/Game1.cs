@@ -28,7 +28,8 @@ namespace pazaak
         MouseState mState;
 
         Texture2D button;
-        string mousePos;
+        string mousePosX;
+        string mousePosY;
 
         public Game1()
         {
@@ -93,14 +94,18 @@ namespace pazaak
             if (kbState.IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            if (mState.X > button.Bounds.Right && mState.X < button.Bounds.Left
-                && mState.Y > button.Bounds.Top && mState.Y < button.Bounds.Bottom
-                &&  mState.LeftButton == ButtonState.Pressed) // det här borde funka. av ngn anledning så vill dock inte muspekarens position uppdateras
+            mState = Mouse.GetState(); // Mus-klick-logik
+
+            if (mState.X <= button.Bounds.Right && mState.X >= button.Bounds.Left
+                && mState.Y >= button.Bounds.Top && mState.Y <= button.Bounds.Bottom
+                &&  mState.LeftButton == ButtonState.Pressed) // kolla om muspekaren är inom texturens rektangel, och om LMB tryckts ned. Isf Exit
             {
                 this.Exit();
             }
 
-            mousePos = mState.X.ToString();
+            mousePosX = mState.X.ToString(); // mus-koordinater för print
+            mousePosY = mState.Y.ToString();
+            mousePosX = mousePosX + "," + mousePosY;
 
             base.Update(gameTime);
         }
@@ -116,8 +121,12 @@ namespace pazaak
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             // Draw everything here
-            spriteBatch.Draw(button, new Vector2(0, 0), Color.White);
-            spriteBatch.DrawString(spriteFont, mousePos, new Vector2(200, 200), Color.White);
+            spriteBatch.Draw(button, new Vector2(0, 0), Color.White); // rita ut knapp
+            spriteBatch.DrawString(spriteFont, mousePosX, new Vector2(200, 200), Color.White); // skriv ut muskoordinater
+            spriteBatch.DrawString(spriteFont, button.Bounds.Left.ToString(), new Vector2(200, 250), Color.White); // skriv ut knapp-koordinater
+            spriteBatch.DrawString(spriteFont, button.Bounds.Right.ToString(), new Vector2(200, 275), Color.White);
+            spriteBatch.DrawString(spriteFont, button.Bounds.Top.ToString(), new Vector2(200, 300), Color.White);
+            spriteBatch.DrawString(spriteFont, button.Bounds.Bottom.ToString(), new Vector2(200, 325), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
